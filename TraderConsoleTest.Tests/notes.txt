@@ -1,0 +1,45 @@
+Data Model
+- Car
+    Length
+    Weight
+- Trailer
+    MaxLength
+    MaxWeight
+    List of Cars
+
+Constraints
+Each Car should have a maximum length and weight capacity
+
+Approach
+- Sort the weight or length (depending on which constraint is more likely to be limiting)
+- Iterate through the sorted list and filter each car into the 
+- If a car cannot fit, allocate a new trailer and continue
+
+
+
+---------------------------------
+- A Tool to load cars on large trailers. How many trailers is needed to carry all these cars of that dealer.
+- Which cars should be loaded on the trailer
+
+- List of Cars 
+Cars 
+- Length
+- Width
+
+- List of trailers
+- MaxLength
+- MaxWeight
+- List of Cars
+
+Input: List of Cars
+Output: 
+Number of trailers required
+Allocation of cars to each trailer
+
+Approach
+- Sort cars by weight or length
+- Iterate through the sorted list and try tp fit each car into current trailer
+- if a car cannot fit, allocate a new trailer and continue
+
+Edge cases:
+- Cars that exceed the capacity of a single 
