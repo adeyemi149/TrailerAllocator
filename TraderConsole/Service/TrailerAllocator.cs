@@ -14,22 +14,28 @@ namespace TraderConsole.Service
             List<Trailer> trailers = new List<Trailer>();
 
             Trailer currentTrailer = new Trailer { MaxLength = maxL, MaxWeight = maxW, Cars = new List<Car>() };
+            int usedLength = 0;
+            int usedWeight = 0;
 
-            foreach (var car in cars) 
+            foreach (var car in cars)
             {
-                if (car.Length <= currentTrailer.MaxLength && car.Weight <= currentTrailer.MaxWeight)
+                if (usedLength + car.Length <= currentTrailer.MaxLength && usedWeight + car.Weight <= currentTrailer.MaxWeight)
                 {
-                    currentTrailer.Cars.Add(car); // Explanation: Add the car to the current trailer if it fits
+                    currentTrailer.Cars.Add(car);
+                    usedLength += car.Length;
+                    usedWeight += car.Weight;
                 }
                 else
                 {
-                    trailers.Add(currentTrailer); // Explanation: Current trailer is full, add it to the list of trailers
-                    currentTrailer = new Trailer { MaxLength = maxL, MaxWeight = maxW, Cars = new List<Car>() }; //Explanation: Create a new trailer
-                    currentTrailer.Cars.Add(car); // Explanation: Add the car to the new trailer
+                    trailers.Add(currentTrailer);
+                    currentTrailer = new Trailer { MaxLength = maxL, MaxWeight = maxW, Cars = new List<Car>() };
+                    usedLength = car.Length;
+                    usedWeight = car.Weight;
+                    currentTrailer.Cars.Add(car);
                 }
             }
 
-            trailers.Add(currentTrailer); // Explanation: Add the last trailer if it has any cars
+            trailers.Add(currentTrailer);
 
             return trailers;
         }
