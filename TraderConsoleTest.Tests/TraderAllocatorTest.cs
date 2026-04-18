@@ -12,7 +12,7 @@ namespace TraderConsoleTest.Tests
         [Fact]
         public void CumulativeWeightExceedsMax_ShouldSpillToNewTrailer()
         {
-            // Two cars each weighing 15 — combined 30 exceeds maxW=20, so must split across two trailers
+            // Two cars each weighing 15 — combined 30 exceeds maxW=20, must split
             var cars = new List<Car>
             {
                 new Car { Length = 5, Weight = 15 },

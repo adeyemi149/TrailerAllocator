@@ -29,9 +29,9 @@ namespace TraderConsole.Service
                 {
                     trailers.Add(currentTrailer);
                     currentTrailer = new Trailer { MaxLength = maxL, MaxWeight = maxW, Cars = new List<Car>() };
+                    currentTrailer.Cars.Add(car);
                     usedLength = car.Length;
                     usedWeight = car.Weight;
-                    currentTrailer.Cars.Add(car);
                 }
             }
 
